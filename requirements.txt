@@ -1,2 +1,2 @@
-keyboard
+pynput
 playsound
