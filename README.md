@@ -4,6 +4,12 @@ Play a sound every time you press a key, some people like it.
 
 Right now it plays a default sound hardcoded but later will be selectable. The default sound is the mechanical cherry mx brown key stroke.
 
+### Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
 ### How to run
 
 On Linux/MacOS
