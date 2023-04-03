@@ -1,4 +1,7 @@
+import argparse
 import os
+import platform
+import sys
 import threading
 from pathlib import Path
 
@@ -26,7 +29,30 @@ def on_key_release(key):
     pressed_keys.discard(key)
 
 
+def kill_active_instances():
+    current_pid = os.getpid()
+    script_name = os.path.basename(sys.argv[0])
+    print(script_name, platform.system())
+
+    if platform.system() == "Windows":
+        for line in os.popen(
+            "wmic process where \"name='python.exe' or name='pythonw.exe'\" get processid, commandline"
+        ):
+            if script_name in line and str(current_pid) not in line:
+                pid = int(line.split()[-1])
+                os.system(f"taskkill /F /PID {pid}")
+    else:  # Linux
+        os.system("kill $(ps aux | grep 'sound-on-keystroke' | awk '{print $2}')")
+
 def main():
+    parser = argparse.ArgumentParser(description="Play a sound on every keystroke.")
+    parser.add_argument("-k", "--kill", action="store_true", help="kill active instances of the script")
+    args = parser.parse_args()
+
+    if args.kill:
+        kill_active_instances()
+        sys.exit(0)
+
     # Attach the key event handlers to keyboard events
     with keyboard.Listener(on_press=on_key_press, on_release=on_key_release) as listener:
         listener.join()
