@@ -1,1 +1,1 @@
-kill $(ps aux | grep 'sound-on-keystroke' | awk '{print $2}')
+kill $(ps aux | grep 'key-harmony' | awk '{print $2}')

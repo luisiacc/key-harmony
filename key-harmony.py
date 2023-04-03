@@ -42,7 +42,7 @@ def kill_active_instances():
                 pid = int(line.split()[-1])
                 os.system(f"taskkill /F /PID {pid}")
     else:  # Linux
-        os.system("kill $(ps aux | grep '%s' | awk '{print $2}')" % script_name)
+        os.system("killall $(ps aux | grep '%s' | awk '{print $2}')" % script_name)
 
 
 def main():
