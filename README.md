@@ -15,7 +15,7 @@ pip install -r requirements.txt
 On Linux/MacOS
 
 ```bash
-nohup python key_sound.py &
+nohup python key-harmony.py &
 ```
 
 On Windows
