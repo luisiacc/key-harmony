@@ -10,7 +10,7 @@ Right now it plays a default sound hardcoded but later will be selectable. The d
 pip install -r requirements.txt
 ```
 
-### How to run
+### How to run on the background
 
 On Linux/MacOS
 
