@@ -33,6 +33,10 @@ Run the script with the `-k` flag like:
 python key-harmony.py -k
 ```
 
+This works for both Linux and Windows.
+
+If you are on Linux you can also execute the `./kill.sh` file, remember to assign it execution permissions with `chmod`.
+
 ## TODO's
 
 - [ ] Add more sounds, all mechanical cherry sounds
