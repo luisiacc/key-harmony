@@ -32,7 +32,6 @@ def on_key_release(key):
 def kill_active_instances():
     current_pid = os.getpid()
     script_name = os.path.basename(sys.argv[0])
-    print(script_name, platform.system())
 
     if platform.system() == "Windows":
         for line in os.popen(
